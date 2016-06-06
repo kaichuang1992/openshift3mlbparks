@@ -83,6 +83,14 @@ public class DBConnection {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else {
+			System.out.println("Updateing collection");
+			BasicDBObject updateQuery = new BasicDBObject();
+			updateQuery.append("$set", new BasicDBObject().append("division", "East"));
+
+			BasicDBObject searchQuery = new BasicDBObject();
+			searchQuery.append("league", "American League");
+			parkListCollection.updateMulti(searchQuery, updateQuery);
 		}
 	}
 
