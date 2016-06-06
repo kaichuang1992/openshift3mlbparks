@@ -14,6 +14,7 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
 import com.mongodb.Mongo;
+import com.mongodb.ReadPreference;
 import com.mongodb.util.JSON;
 
 @Named
@@ -46,6 +47,7 @@ public class DBConnection {
 		Mongo mongo = null;
 		try {
 			mongo = new Mongo(mongoHost, port);
+			mongo.setReadPreference(ReadPreference.secondaryPreferred());
 			System.out.println("Connected to database");
 		} catch (UnknownHostException e) {
 			System.out.println("Couldn't connect to MongoDB: " + e.getMessage() + " :: " + e.getClass());
