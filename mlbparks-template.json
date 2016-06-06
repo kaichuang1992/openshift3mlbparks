@@ -240,46 +240,6 @@
                     }
                 }
             }
-        },
-        {
-            "kind": "Service",
-            "apiVersion": "v1",
-            "metadata": {
-                "name": "${DATABASE_SERVICE_NAME}",
-                "creationTimestamp": null
-            },
-            "spec": {
-                "ports": [
-                    {
-                        "name": "mongo",
-                        "protocol": "TCP",
-                        "port": 27017,
-                        "targetPort": 27017,
-                        "nodePort": 0
-                    }
-                ],
-                "selector": {
-                }
-            }
-        },
-        {
-          "kind": "Endpoints",
-          "apiVersion": "v1",
-          "metadata": {
-            "name": "mongodb"
-          },
-          "subsets": [
-                {
-                    "addresses": [
-                        { "ip": "${REPLICA_IP_1}" },
-                        { "ip": "${REPLICA_IP_2}" },
-                        { "ip": "${REPLICA_IP_3}" }
-                    ],
-                    "ports": [
-                        { "port": 27017 }
-                    ]
-                }
-            ]
         }
     ],
     "parameters": [
