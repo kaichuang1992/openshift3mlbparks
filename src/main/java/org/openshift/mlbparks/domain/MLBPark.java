@@ -58,6 +58,9 @@ public class MLBPark {
 	}
 	
 	public Object getDivision() {
+		if (null == division) {
+			return "Undefined";
+		}
 		return division;
 	}
 	
