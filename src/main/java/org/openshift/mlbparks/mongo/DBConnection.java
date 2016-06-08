@@ -74,21 +74,26 @@ public class DBConnection {
 	
 	private List<ServerAddress> getServers(int count) {
 		List<ServerAddress> servers = new ArrayList<ServerAddress>();
-		for (int i=0;i<count;i++) {
-			String mongohost = System.getenv("REPLICA_SERVICE_"+ i +"_HOST");
-			String mongoport = System.getenv("REPLICA_SERVICE_"+ i +"_PORT");
-			if (null != mongohost && null != mongoport) {
-				ServerAddress address = new ServerAddress(mongohost, Integer.decode(mongoport));
-				servers.add(address);
+		try {
+		
+			for (int i=0;i<count;i++) {
+				String mongohost = System.getenv("REPLICA_SERVICE_"+ i +"_HOST");
+				String mongoport = System.getenv("REPLICA_SERVICE_"+ i +"_PORT");
+				if (null != mongohost && null != mongoport) {
+					ServerAddress address = new ServerAddress(mongohost, Integer.decode(mongoport));
+					servers.add(address);
+				}
 			}
-		}
-		if(servers.isEmpty()) {
-			String mongohost = (System.getenv("MONGODB_SERVICE_HOST") == null) ? "127.0.0.1" : System.getenv("MONGODB_SERVICE_HOST");
-			String mongoport = (System.getenv("MONGODB_SERVICE_PORT") == null) ? "27017" : System.getenv("MONGODB_SERVICE_PORT"); 
-			if (null != mongohost && null != mongoport) {
-				ServerAddress address = new ServerAddress(mongohost, Integer.decode(mongoport));
-				servers.add(address);
+			if(servers.isEmpty()) {
+				String mongohost = (System.getenv("MONGODB_SERVICE_HOST") == null) ? "127.0.0.1" : System.getenv("MONGODB_SERVICE_HOST");
+				String mongoport = (System.getenv("MONGODB_SERVICE_PORT") == null) ? "27017" : System.getenv("MONGODB_SERVICE_PORT"); 
+				if (null != mongohost && null != mongoport) {
+					ServerAddress address = new ServerAddress(mongohost, Integer.decode(mongoport));
+					servers.add(address);
+				}
 			}
+		} catch (UnknownHostException e) {
+			System.out.println("Couldn't connect to MongoDB: " + e.getMessage() + " :: " + e.getClass());
 		}
 		return servers;
 	}
