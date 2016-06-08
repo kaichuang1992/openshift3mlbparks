@@ -45,7 +45,7 @@ public class DBConnection {
 			mongoPort = System.getenv("MONGODB_24_RHEL7_SERVICE_PORT");
 		}
 		*/
-		int port = Integer.decode(mongoPort);
+		//int port = Integer.decode(mongoPort);
 		
 		Mongo mongo = null;
 		try {
@@ -78,15 +78,15 @@ public class DBConnection {
 			String mongohost = System.getenv("REPLICA_SERVICE_"+ i +"_HOST");
 			String mongoport = System.getenv("REPLICA_SERVICE_"+ i +"_PORT");
 			if (null != mongohost && null != mongoport) {
-				ServerAddress address = new ServerAddress(mongohost, Integer.decode(mongoPort));
+				ServerAddress address = new ServerAddress(mongohost, Integer.decode(mongoport));
 				servers.add(address);
 			}
 		}
 		if(servers.isEmpty()) {
-			String mongoHost = (System.getenv("MONGODB_SERVICE_HOST") == null) ? "127.0.0.1" : System.getenv("MONGODB_SERVICE_HOST");
-			String mongoPort = (System.getenv("MONGODB_SERVICE_PORT") == null) ? "27017" : System.getenv("MONGODB_SERVICE_PORT"); 
+			String mongohost = (System.getenv("MONGODB_SERVICE_HOST") == null) ? "127.0.0.1" : System.getenv("MONGODB_SERVICE_HOST");
+			String mongoport = (System.getenv("MONGODB_SERVICE_PORT") == null) ? "27017" : System.getenv("MONGODB_SERVICE_PORT"); 
 			if (null != mongohost && null != mongoport) {
-				ServerAddress address = new ServerAddress(mongohost, Integer.decode(mongoPort));
+				ServerAddress address = new ServerAddress(mongohost, Integer.decode(mongoport));
 				servers.add(address);
 			}
 		}
