@@ -6,7 +6,7 @@ import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.List;
 import java.util.Map;
-import java.util.Iterator
+import java.util.Iterator;
 import java.util.ArrayList;
 
 import javax.annotation.PostConstruct;
