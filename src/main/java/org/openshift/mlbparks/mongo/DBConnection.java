@@ -87,8 +87,10 @@ public class DBConnection {
 		try {
 		
 			for (int i=0;i<count;i++) {
-				String mongohost = System.getenv("REPLICA_"+ i +" _SERVICE_HOST");
-				String mongoport = System.getenv("REPLICA_"+ i +" _SERVICE_PORT");
+				String mongohost = System.getenv("REPLICA_"+ i +"_SERVICE_HOST");
+				String mongoport = System.getenv("REPLICA_"+ i +"_SERVICE_PORT");
+				System.out.println(mongohost);
+				System.out.println(mongoport);
 				if (null != mongohost && null != mongoport) {
 					ServerAddress address = new ServerAddress(mongohost, Integer.decode(mongoport));
 					servers.add(address);
