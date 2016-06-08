@@ -233,6 +233,18 @@
                                     {
                                         "name": "MONGODB_ADMIN_PASSWORD",
                                         "value": "${MONGODB_ADMIN_PASSWORD}"
+                                    },
+                                    {
+                                        "name": "REPLICA_SERVICE_1",
+                                        "value": "${REPLICA_SERVICE_1}"
+                                    },
+                                    {
+                                         "name": "REPLICA_SERVICE_2",
+                                        "value": "${REPLICA_SERVICE_2}"
+                                    },
+                                     {
+                                         "name": "REPLICA_SERVICE_3",
+                                        "value": "${REPLICA_SERVICE_3}"
                                     }
                                 ]
                             }
