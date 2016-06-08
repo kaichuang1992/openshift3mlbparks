@@ -334,21 +334,21 @@
             "required": true
         },
         {
-            "name": "REPLICA_IP_1",
+            "name": "REPLICA_SERVICE_1",
             "description": "IP Address for 1st member of the Replica Set",
-            "value": "10.1.2.10",
+            "value": "replica-1",
             "required": true
         },
         {
-            "name": "REPLICA_IP_2",
+            "name": "REPLICA_SERVICE_2",
             "description": "IP Address for 2nd member of the Replica Set",
-            "value": "10.1.2.11",
+            "value": "replica-2",
             "required": true
         },
         {
-            "name": "REPLICA_IP_3",
+            "name": "REPLICA_SERVICE_3",
             "description": "IP Address for 3rd member of the Replica Set",
-            "value": "10.1.2.12",
+            "value": "replica-3",
             "required": true
         }
     ],
