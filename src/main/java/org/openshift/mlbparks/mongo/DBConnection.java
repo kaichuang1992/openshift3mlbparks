@@ -5,6 +5,8 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.List;
+import java util.Map;
+import java.util.Iterator
 import java.util.ArrayList;
 
 import javax.annotation.PostConstruct;
@@ -31,6 +33,14 @@ public class DBConnection {
 
 	@PostConstruct
 	public void afterCreate() {
+		Map<String, String> envMap = System.getenv();
+		Iterator it = envMap.entrySet().iterator();
+		while (it.hasNext()) {
+			Map.Entry pair = (Map.Entry)it.next();
+		        System.out.println(pair.getKey() + " = " + pair.getValue());
+		        //it.remove(); // avoids a ConcurrentModificationException
+		}
+		
 		//String mongoHost = (System.getenv("MONGODB_SERVICE_HOST") == null) ? "127.0.0.1" : System.getenv("MONGODB_SERVICE_HOST");
 		//String mongoPort = (System.getenv("MONGODB_SERVICE_PORT") == null) ? "27017" : System.getenv("MONGODB_SERVICE_PORT"); 
 		String mongoUser = (System.getenv("MONGODB_USER")== null) ? "mlbparks" : System.getenv("MONGODB_USER");
