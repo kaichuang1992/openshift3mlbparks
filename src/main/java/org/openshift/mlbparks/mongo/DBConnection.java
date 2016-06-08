@@ -48,15 +48,15 @@ public class DBConnection {
 		//int port = Integer.decode(mongoPort);
 		
 		Mongo mongo = null;
-		try {
+		//try {
 			mongo = new Mongo(getServers(3));
 			
 			//mongo = new Mongo(mongoHost, port);
 			mongo.setReadPreference(ReadPreference.primaryPreferred());
 			System.out.println("Connected to database");
-		} catch (UnknownHostException e) {
-			System.out.println("Couldn't connect to MongoDB: " + e.getMessage() + " :: " + e.getClass());
-		}
+		//} catch (UnknownHostException e) {
+		//	System.out.println("Couldn't connect to MongoDB: " + e.getMessage() + " :: " + e.getClass());
+		//}
 
 		mongoDB = mongo.getDB(mongoDBName);
 
@@ -90,6 +90,7 @@ public class DBConnection {
 				servers.add(address);
 			}
 		}
+		return servers;
 	}
 
 	private void initDatabase(DB mongoDB) {
