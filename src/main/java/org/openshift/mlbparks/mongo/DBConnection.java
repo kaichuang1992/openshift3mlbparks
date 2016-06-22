@@ -58,7 +58,7 @@ public class DBConnection {
 			mongo.setReadPreference(ReadPreference.primaryPreferred());
 			System.out.println("Connected to database");
 	//	} catch (UnknownHostException e) {
-			System.out.println("Couldn't connect to MongoDB: " + e.getMessage() + " :: " + e.getClass());
+		//	System.out.println("Couldn't connect to MongoDB: " + e.getMessage() + " :: " + e.getClass());
 		//}
 
 		mongoDB = mongo.getDB(mongoDBName);
